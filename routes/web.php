@@ -13,6 +13,7 @@ use App\Http\Controllers\FormsController;
 use App\Http\Controllers\TableController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\MiscellaneousController;
+
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\ChartsController;
 
@@ -28,3 +29,4 @@ use App\Http\Controllers\ChartsController;
 */
 
 require __DIR__.'/web/template.php';
+require __DIR__.'/web/main.php';

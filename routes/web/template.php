@@ -31,7 +31,8 @@ use App\Http\Controllers\ChartsController;
 Route::get('/template', [DashboardController::class, 'dashboardEcommerce'])->name('dashboard-ecommerce');
 
 
-/* Route Dashboards */
+/* Route Dashboards 
+*/
 Route::group(['prefix' => 'dashboard'], function () {
     Route::get('analytics', [DashboardController::class, 'dashboardAnalytics'])->name('dashboard-analytics');
     Route::get('ecommerce', [DashboardController::class, 'dashboardEcommerce'])->name('dashboard-ecommerce');
