@@ -11,6 +11,12 @@ class LoginController extends Controller
     /**
      * Handle an authentication attempt.
      */
+
+    public function showLoginForm()
+    {
+        return view('login'); // Replace with the actual view name if it's different
+    }
+
     public function authenticate(Request $request): RedirectResponse
     {
         $credentials = $request->validate([
@@ -21,11 +27,12 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
  
-            return redirect()->intended('dashboard');
+            return redirect()->intended('dashboardadmin');
         }
  
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
     }
+
 }

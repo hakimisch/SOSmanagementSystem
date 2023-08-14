@@ -17,6 +17,7 @@
   @endsection
 
 @section('content')
+@csrf
 <!-- Dashboard Analytics Start -->
 <section id="dashboard-analytics">
   <div class="row match-height">

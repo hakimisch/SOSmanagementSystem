@@ -17,6 +17,9 @@ use App\Http\Controllers\MiscellaneousController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\ChartsController;
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminDashboard;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,13 +31,13 @@ use App\Http\Controllers\ChartsController;
 |
 */
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login'); // Display the login form
+Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate'); // Handle form submission
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboardadmin', [AdminDashboard::class, 'index'])->name('dashboardadmin'); // Dashboard route
+});
+
 
 require __DIR__.'/web/template.php';
 require __DIR__.'/web/main.php';
